@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- spring4-servlet.xml -->
+<bean id="beanNameUrlHandlermapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+
+<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/jsp/" />
+	<property name="suffix" value=".jsp" />
+</bean>
+
+<!-- property속성을 이용한 setter injection  -->
+<!--  <bean id="/welcome.hbi" class="spring_web04.HelloController">
+	<property name="name" value="강감찬" />
+	<property name="email" value="kang@army.com" />
+	<property name="message" value="거란 전쟁 이겼다." />
+</bean> -->
+
+<!--constructor-arg속성을 이용한 constructor injection -->
+<bean id="/welcome.hbi" class="spring_web04.HelloController">
+	<constructor-arg name="name" index="0" value="강감찬" />
+	<constructor-arg name="email" index="1" value="kang@army.com" />
+	<constructor-arg name="message" index="2" value="거란전쟁 이겼다." />
+</bean>
+
+<bean id="/now.hbi" class="spring_web04.NowController"></bean>
+</beans>
